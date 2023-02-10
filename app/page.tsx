@@ -48,6 +48,11 @@ function HomePage() {
             </div>
 
          </div>
+
+         <div className="text-center w-full p-3 text-white text-xs mt-10">
+            Cloned by Mishael kama<br />
+            View Github repo <a target="_blank" href="https://github.com/2kama/chatgpt-clone">Here</a>
+        </div>
     </div>
   )
 }
