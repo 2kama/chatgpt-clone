@@ -14,7 +14,7 @@ type Props = {
 
 
 function ChatInput({ chatId }: Props) {
-    const [prompt, setPrompt] = useState<string>()
+    const [prompt, setPrompt] = useState<string>("")
     const { data: session } = useSession()
 
     //TODO: useswr to get model
