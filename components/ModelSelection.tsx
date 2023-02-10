@@ -10,6 +10,10 @@ function ModelSelection() {
         fallbackData: 'text-davinci-003'
     })
 
+    const onChange = (selected: any) => {
+        setModal(selected.value)
+    }
+
   return (
     <div className='mt-2'>
         <Select 
@@ -23,7 +27,7 @@ function ModelSelection() {
             }}
             defaultInputValue={model}
             placeholder={model}
-            onChange={(e) => setModal(e.value)}
+            onChange={onChange}
         />
     </div>
   )
