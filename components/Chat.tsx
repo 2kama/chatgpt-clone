@@ -32,7 +32,7 @@ function Chat({chatId} : Props) {
             </>
         )}
 
-        {messages?.docs.map(message=> <Message key={message.id} message={message.data()} />)}
+        {messages?.docs.map((message, idx)=> <Message key={message.id} message={message.data()} isLast={messages.docs.length - 1 === idx} />)}
     </div>
   )
 }
