@@ -6,6 +6,7 @@ import { useCollection } from 'react-firebase-hooks/firestore'
 import { collection, orderBy, query } from "firebase/firestore"
 import { db } from "../firebase"
 import ChatRow from "./ChatRow"
+import ModelSelection from "./ModelSelection"
 
 
 function SideBar() {
@@ -24,14 +25,22 @@ function SideBar() {
                 {/*New Chat*/}
                 <NewChat />
 
-                <div>
+                <div className="hidden sm:inline">
                     {/* Mode Selection */}
+                    <ModelSelection />
                 </div>
+                
+                <div className="flex flex-col space-y-2 my-2">
 
-                {/*Map Through the chat rows*/}
-                {chats?.docs.map(chat => 
-                    <ChatRow key={chat.id} id={chat.id} />
-                )}
+                    {loading && (
+                        <div className="animate-pulse text-center text-white">Loading Chats...</div>
+                    )}
+
+                    {/*Map Through the chat rows*/}
+                    {chats?.docs.map(chat => 
+                        <ChatRow key={chat.id} id={chat.id} />
+                    )}
+                </div>
             </div>
             
         </div>
