@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react"
 import { useCollection } from "react-firebase-hooks/firestore"
 import { db } from "../firebase"
 import Message from "./Message"
+import ScrollToBottom from 'react-scroll-to-bottom'
 
 type Props = {
     chatId: string
@@ -22,7 +23,7 @@ function Chat({chatId} : Props) {
   ))
 
   return (
-    <div className="flex-1 overflow-y-auto overflow-x-hidden">
+    <ScrollToBottom className="flex-1 overflow-y-auto overflow-x-hidden">
         {messages?.empty && (
             <>
              <p className="mt-10 text-center text-white">
@@ -33,7 +34,7 @@ function Chat({chatId} : Props) {
         )}
 
         {messages?.docs.map((message, idx)=> <Message key={message.id} message={message.data()} isLast={messages.docs.length - 1 === idx} />)}
-    </div>
+    </ScrollToBottom>
   )
 }
 
