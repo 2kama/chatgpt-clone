@@ -1,29 +1,38 @@
+import { SessionProvider } from '../components/SessionProvider'
 import SideBar from '../components/SideBar'
+import { getServerSession } from 'next-auth'
 import '../styles/globals.css'
-export default function RootLayout({
+import { authOptions } from '../pages/api/auth/[...nextauth]'
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+  const session = await getServerSession(authOptions)
+
   return (
     <html>
       <head />
       <body>
-        <div className='flex'>
-          {/* sidebar */}
-          <div className='bg-[#202123] max-w-xs h-screen overflow-y-auto md:min-w-[20rem]'>
+        <SessionProvider session={session}>
 
-            <SideBar />
-          </div>
+            <div className='flex'>
+              {/* sidebar */}
+              <div className='bg-[#202123] max-w-xs h-screen overflow-y-auto md:min-w-[20rem]'>
 
-          {/* client provider */}
+                <SideBar />
+              </div>
 
-          <div className="bg-[#343541] flex-1">
-             {children}
-          </div>
+              {/* client provider */}
 
-          
-        </div>
+              <div className="bg-[#343541] flex-1">
+                {children}
+              </div>
+
+              
+            </div>
+        </SessionProvider>
         
         
         </body>
