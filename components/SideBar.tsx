@@ -18,7 +18,6 @@ function SideBar() {
     orderBy("createdAt", "asc"))
   )
 
-  console.log(session)
 
   return (
     <div className="p-2 flex flex-col h-screen">
