@@ -1,27 +1,35 @@
-# Next.js + Tailwind CSS Example
+# ChatGPT Clone
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This repo is deployed on Netlify. You can view it here [ChatGPT Clone](https://chatgpt-clone-mish.netlify.app/)
 
-## Deploy your own
+## Tech Stack
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+[React](https://reactjs.org/)<br>
+[NextJS](https://nextjs.org/)<br>
+[TailwindCSS](https://tailwindcss.com/)<br>
+[Firebase](https://firebase.google.com/)<br>
+[TypeScript](https://www.typescriptlang.org/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Load up locally
 
-## How to use
+You'll need to create some *environment variables* in a *.env.local* file.<br><br>
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+FIREBASE_SERVICE_ACCOUNT_KEY (Gotten from your Firebase Account Project)<br>
+GOOGLE_ID (Gotten from your Google Authentication Web SDK settings)<br>
+GOOGLE_SECRET (Gotten from your Google Authentication Web SDK settings)<br>
+NEXTAUTH_SECRET (This really can be any AlphaNumeric you want)<br>
+NEXTAUTH_URL (This is the baseURL of your host. e.g localhost:3000 or the url host of your deployed version.)<br>
+OPENAI_API_KEY (apiKey from your openai account)
 
+<br><br><br>
+Then you can run these to pull up on localhost:3000
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+yarn install
 ```
 
 ```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+yarn run dev
 ```
+<br>
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+For the google auth to work, you gotta whitelist your hostname on the google api console.
